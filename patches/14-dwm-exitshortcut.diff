@@ -1,0 +1,15 @@
+diff --git a/config.def.h b/config.def.h
+index 41c5e2c..d7b440c 100644
+--- a/config.def.h
++++ b/config.def.h
+@@ -123,8 +123,8 @@ static const Key keys[] = {
+ 	TAGKEYS(                        XK_7,                      6)
+ 	TAGKEYS(                        XK_8,                      7)
+ 	TAGKEYS(                        XK_9,                      8)
+-	{ MODKEY|ShiftMask,             XK_q,      quit,           {0} },
+-	{ MODKEY|ShiftMask,             XK_e,      exitdwm,        {0} },
++//	{ MODKEY|ShiftMask,             XK_q,      quit,           {0} },
++	{ MODKEY|ShiftMask,             XK_q,      exitdwm,        {0} },
+ 	{ 0x0,                          XK_XF86MonBrightnessUp,     spawn,  	{.v = brightnessUp} },
+ 	{ 0x0,                          XK_XF86MonBrightnessDown,   spawn,      {.v = brightnessDown } },
+ 	{ 0x0,                          XK_XF86AudioMute,           spawn,      {.v = volmute } },

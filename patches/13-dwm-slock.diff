@@ -1,0 +1,27 @@
+diff --git a/config.def.h b/config.def.h
+index 1914336..41c5e2c 100644
+--- a/config.def.h
++++ b/config.def.h
+@@ -75,12 +75,14 @@ static const char *brightnessDown[] = { "backlight", "decr","10", NULL };
+ static const char *volmute[] = { "mixer", "vol.mute=^", NULL };
+ static const char *incrvol[] = { "mixer", "vol.volume=+.05:+.05", NULL };
+ static const char *decrvol[] = { "mixer", "vol.volume=-0.05:-0.05", NULL };
++static const char *lock[] = { "slock", NULL };
+ 
+ #define XK_XF86MonBrightnessUp 0x1008ff02
+ #define XK_XF86MonBrightnessDown 0x1008ff03
+ #define XK_XF86AudioMute 0x1008ff12
+ #define XK_XF86AudioRaiseVolume 0x1008ff13
+ #define XK_XF86AudioLowerVolume 0x1008ff11
++#define XK_XF86Display 0x1008ff59
+ 
+ #include "exitdwm.c"
+ static const Key keys[] = {
+@@ -128,6 +130,7 @@ static const Key keys[] = {
+ 	{ 0x0,                          XK_XF86AudioMute,           spawn,      {.v = volmute } },
+ 	{ 0x0,                          XK_XF86AudioRaiseVolume,    spawn,      {.v = incrvol } },
+ 	{ 0x0,                          XK_XF86AudioLowerVolume,    spawn,      {.v = decrvol } },
++	{ 0x0,				XK_XF86Display,		    spawn,	{.v = lock    } },
+ 
+ };
+ 

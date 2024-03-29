@@ -1,0 +1,36 @@
+diff --git a/config.def.h b/config.def.h
+index 9efa774..9198140 100644
+--- a/config.def.h
++++ b/config.def.h
+@@ -60,6 +60,19 @@ static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn()
+ static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
+ static const char *termcmd[]  = { "st", NULL };
+ 
++static const char *brightnessUp[] = { "backlight", "incr","5", NULL };
++static const char *brightnessDown[] = { "backlight", "decr","5", NULL };
++static const char *volmute[] = { "mixer", "vol.mute=^", NULL };
++static const char *incrvol[] = { "mixer", "vol.volume=+.05:+.05", NULL };
++static const char *decrvol[] = { "mixer", "vol.volume=-0.05:-0.05", NULL };
++
++#define XK_XF86MonBrightnessUp 0x1008ff02
++#define XK_XF86MonBrightnessDown 0x1008ff03
++#define XK_XF86AudioMute 0x1008ff12
++#define XK_XF86AudioRaiseVolume 0x1008ff13
++#define XK_XF86AudioLowerVolume 0x1008ff11
++
++
+ static const Key keys[] = {
+ 	/* modifier                     key        function        argument */
+ 	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
+@@ -95,6 +108,11 @@ static const Key keys[] = {
+ 	TAGKEYS(                        XK_8,                      7)
+ 	TAGKEYS(                        XK_9,                      8)
+ 	{ MODKEY|ShiftMask,             XK_q,      quit,           {0} },
++	{ 0x0,                          XK_XF86MonBrightnessUp,     spawn,  	{.v = brightnessUp} },
++	{ 0x0,                          XK_XF86MonBrightnessDown,   spawn,      {.v = brightnessDown } },
++	{ 0x0,                          XK_XF86AudioMute,           spawn,      {.v = volmute } },
++	{ 0x0,                          XK_XF86AudioRaiseVolume,    spawn,      {.v = incrvol } },
++	{ 0x0,                          XK_XF86AudioLowerVolume,    spawn,      {.v = decrvol } },
+ };
+ 
+ /* button definitions */
